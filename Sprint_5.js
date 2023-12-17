@@ -133,10 +133,9 @@ people5.forEach((person) => {
   person.introduceYourself();
 });
 
-const colors = ["red", "green", "yellow", "blue", "pink", "orange"];
+// ___________________________________________________________________________________
 
-// Napisz funkcję, która :
-//     a) przyjmie parametr typu number z zakresu 1 - 30
+const colors = ["red", "green", "yellow", "blue", "pink", "orange"];
 
 function color(number) {
   if (typeof number === "number" || number >= 1 || number <= 30) {
@@ -144,17 +143,14 @@ function color(number) {
     console.log("Podałeś za małą liczbę, liczba nie może być mniejsza niż 1 ");
   } else if (typeof number === "number" || number > 30) {
     console.log("Podałeś za dużą liczbę, liczba nie może być większa niż 30 ");
-  } else if (typeof number !== "number") {
+  }
+  if (typeof number !== "number") {
     number = 5;
   }
+
   return {};
 }
 
-//     b) funkcja ma przyjmować jeden parametr typu number z zakresu 1 - 30
-//     c) jeżeli podany parametr jest poza zakresem, powinien wyświetlić się odpowiedni komunikat
-//         - podałeś za małą liczbę, liczba nie może być mniejsza niż 1
-//         - podałeś za dużą liczbę, liczba nie może być większa niż 30
-//     d) w przypadku wywołania funkcji bez parametru, powinniśmy ustawić domyślną wartość na 5
 //     e) funkcja powinna zsumować pary klucz + wartość trzech pierwszych pozycji w obiekcie (użyj do tego Object.entries)
 //     odjąć od tej sumy liczbę wprowadzoną w parametrze, a następnie za pomocą działania modulo (%) względem długości tablicy kolorów
 //     wyznaczyć index
