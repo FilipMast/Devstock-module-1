@@ -133,23 +133,35 @@ people5.forEach((person) => {
   person.introduceYourself();
 });
 
-// ___________________________________________________________________________________
+//_______________________________________________________________________
 
 const colors = ["red", "green", "yellow", "blue", "pink", "orange"];
 
-function color(number) {
-  if (typeof number === "number" || number >= 1 || number <= 30) {
-  } else if (typeof number === "number" || number < 1) {
+function getColorByNumber(number) {
+  if (typeof number === "number" && number < 1) {
     console.log("Podałeś za małą liczbę, liczba nie może być mniejsza niż 1 ");
-  } else if (typeof number === "number" || number > 30) {
+    return;
+  } else if (typeof number === "number" && number > 30) {
     console.log("Podałeś za dużą liczbę, liczba nie może być większa niż 30 ");
-  }
-  if (typeof number !== "number") {
-    number = 5;
+    return;
+  } else if (typeof number !== "number") {
+    return (number = 5);
   }
 
-  return {};
+  const keyAndValue = people5.slice(0, 3).reduce((sum, person) => {
+    for (const [key, value] of Object.entries(person)) {
+      sum += key.length + String(value).length;
+    }
+    return sum;
+  }, 0);
+
+  const index = (keyAndValue - number) % colors.length;
+  const selectedColor = colors[index];
+
+  console.log(`Dla liczby ${number}, wybrany kolor to: ${selectedColor}`);
 }
+
+getColorByNumber(5);
 
 //     e) funkcja powinna zsumować pary klucz + wartość trzech pierwszych pozycji w obiekcie (użyj do tego Object.entries)
 //     odjąć od tej sumy liczbę wprowadzoną w parametrze, a następnie za pomocą działania modulo (%) względem długości tablicy kolorów
